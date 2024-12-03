@@ -1,0 +1,30 @@
+507. Perfect Number
+
+A perfect number is a positive integer that is equal to the sum of its positive divisors, 
+excluding the number itself. A divisor of an integer x is an integer that can divide x evenly.
+
+Given an integer n, return true if n is a perfect number, otherwise return false.
+
+class Solution {
+    public int reverse(int x) {
+
+int rev=0;
+
+while( x != 0 ){
+int digit = x%10;
+x = x/10;
+
+if(rev > Integer.MAX_VALUE / 10  || (rev == Integer.MAX_VALUE / 10  && digit > 7)){
+    return 0;
+}
+if(rev < Integer.MIN_VALUE / 10  || (rev == Integer.MIN_VALUE / 10 && digit < -8 )){
+    return 0;
+}
+
+rev = rev * 10 + digit ;
+}
+
+return rev;
+
+    }
+}
